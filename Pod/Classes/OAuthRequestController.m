@@ -92,9 +92,11 @@
         [_delegate didCancel];
         
     } else {
-        [self dismissViewControllerAnimated:YES completion:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self dismissViewControllerAnimated:YES completion:^{
 
-        }];
+            }];
+        });
     }
 }
 
